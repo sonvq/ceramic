@@ -1,0 +1,188 @@
+/*
+Theme Name: Ceramic
+Theme URI: http://ceramic.com
+Author: Ceramic
+Author URI: http://ceramic.com
+Description: Our 2015 default theme is clean, blog-focused, and designed for clarity. Ceramic's simple, straightforward typography is readable on a wide variety of screen sizes, and suitable for multiple languages. We designed it using a mobile-first approach, meaning your content takes center-stage, regardless of whether your visitors arrive by smartphone, tablet, laptop, or desktop computer.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, blue, gray, pink, purple, white, yellow, dark, light, two-columns, left-sidebar, fixed-layout, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
+Text Domain: Ceramic
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* Site CSS */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+p {
+    line-height: 1.65em;
+}
+
+a:link,
+a:visited {
+    color: #006ec3;
+}
+
+/* General Layout */
+div.container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0px 20px 0px 20px;
+}
+
+article.post {
+    border-bottom: 2px dotted #bbb;
+}
+
+article.post:last-of-type {
+    border-bottom: none;
+}
+
+/* Header */
+.site-header {
+    border-bottom: 2px solid #999;
+}
+
+/* Navigation Menus */
+.site-nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav ul:before, .site-nav ul:after {
+    content: "";
+    display: table; 
+}
+.site-nav ul:after {
+    clear: both;
+}
+.site-nav {
+    *zoom: 1;
+}
+.site-nav ul li {
+    list-style: none;
+    float: left;
+}
+
+/* Site Header Menu */
+.site-header nav ul li {
+    margin-right: 5px;
+}
+.site-header nav ul li a:link,
+.site-header nav ul li a:visited {
+    display: block;
+    padding: 10px 18px;
+    border: 1px solid #bbb;
+    border-bottom: none;
+    text-decoration: none;
+}
+
+.site-header nav ul li a:hover {
+    background-color: #ececec
+}
+.site-header nav ul li.current-menu-item a:link,
+.site-header nav ul li.current-menu-item a:visited,
+.site-header nav ul li.current-page-ancestor a:link,
+.site-header nav ul li.current-page-ancestor a:visited {
+    background-color: #006ec3;
+    color: #fff;
+}
+
+/* Page Layout */
+article.page h2 {
+    font-size: 300%;
+}
+
+/* Clearfix */
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+
+
+/* Info Box Styles */
+div.info-box {
+    width: 30%;
+    float: right;
+    margin: 0 0 30px 30px;
+    padding: 20px;
+    background-color: #eee;
+}
+
+div.info-box h4 {
+    margin-bottom: 6px;
+}
+
+div.info-box p {
+    font-size: 85%;
+}
+
+/* Two Column Title Layout */
+div.title-column {
+    width: 30%;
+    float: left;
+}
+
+div.text-column {
+    width: 70%;
+    float: right;
+}
+
+/* Children Links */
+.children-links {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 80%;
+}
+
+.children-links ul {
+    float: left;
+}
+.children-links li {
+    margin-right: 20px;
+}
+.children-links a:link,
+.children-links a:visited {
+    text-decoration: none;
+}
+
+.children-links .parent-link {
+    float: left;
+    margin-right: 20px;
+    padding-right: 20px;
+    border-right: 1px solid #ddd;
+    font-size: 120%;
+    font-weight: bold;
+}
+.children-links .parent-link a:link,
+.children-links .parent-link a:visited {
+    color: #333;
+}
+
+.children-links .current_page_item a:link,
+.children-links .current_page_item a:visited {
+    border-bottom: 1px solid #ddd;
+    color: #333;
+    cursor: default;
+}
+/* Footer */
+.site-footer {
+    margin-top: 30px;
+    border-top: 2px solid #999;
+}
+
+
+
+
+
+
+
+
+
+
