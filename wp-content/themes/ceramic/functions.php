@@ -28,3 +28,17 @@ function has_children() {
     $pages = get_pages('child_of=' . $post->ID);
     return count($pages);
 }
+
+// Customize excerpt word count length
+function custom_excerpt_length() {
+    return 25;
+}
+
+add_filter('excerpt_length', 'custom_excerpt_length');
+
+function ceramic_setup() {
+    // Add featured image support
+    add_theme_support('post-thumbnails');
+}
+
+add_action('after_setup_theme', 'ceramic_setup');
