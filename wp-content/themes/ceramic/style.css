@@ -171,6 +171,21 @@ div.text-column {
     color: #333;
     cursor: default;
 }
+
+/* Post styles */
+.post h2 {
+    margin-bottom: 0;
+}
+
+p.post-info {
+    font-size: 87%;
+    color: #999;
+}
+p.post-info a:link,
+p.post-info a:visited {
+    color: #999;
+}
+
 /* Footer */
 .site-footer {
     margin-top: 30px;
