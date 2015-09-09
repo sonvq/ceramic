@@ -192,6 +192,21 @@ p.post-info a:visited {
     border-top: 2px solid #999;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.has-thumbnail {
+    padding-left: 200px;
+    position: relative;
+    min-height: 130px; 
+}
+.post-thumbnail {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
 
 
 
