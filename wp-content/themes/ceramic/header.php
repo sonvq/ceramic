@@ -10,6 +10,9 @@
         <div class="container">
             <!-- site-header -->
             <header class="site-header">
+                <div class="hd-search">
+                    <?php get_search_form(); ?>
+                </div>
                 <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
                 <h5>
                     <?php bloginfo('description'); ?>
