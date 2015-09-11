@@ -48,3 +48,37 @@ function ceramic_setup() {
 }
 
 add_action('after_setup_theme', 'ceramic_setup');
+
+// Add Our Widget Locations
+function ourWidgetsInit() {
+    register_sidebar( array(
+        'name' => 'Standard Sidebar',
+        'id' => 'sidebar1',
+        'before_widget' => '<div class="widget-item">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4 class="my-special-class">',
+        'after_title' => '</h4>'
+    ));
+    
+    register_sidebar( array(
+        'name' => 'Footer Area 1',
+        'id' => 'footer1'
+    ));
+    
+    register_sidebar( array(
+        'name' => 'Footer Area 2',
+        'id' => 'footer2'
+    ));
+    
+    register_sidebar( array(
+        'name' => 'Footer Area 3',
+        'id' => 'footer3'
+    ));
+    
+    register_sidebar( array(
+        'name' => 'Footer Area 4',
+        'id' => 'footer4'
+    ));
+}
+
+add_action('widgets_init', 'ourWidgetsInit');

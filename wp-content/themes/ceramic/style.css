@@ -30,6 +30,22 @@ a:visited {
     color: #006ec3;
 }
 
+.main-column { 
+    width: 66%; 
+    float: left;
+}
+.secondary-column {
+    width: 30%;
+    float: right;
+}
+
+/* Footer Widget Area */
+.footer-widget-area {
+    width: 25%;
+    float: left;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
 /* General Layout */
 div.container {
     max-width: 920px;
