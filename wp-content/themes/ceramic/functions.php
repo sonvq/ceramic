@@ -51,10 +51,20 @@ function custom_excerpt_length() {
 add_filter('excerpt_length', 'custom_excerpt_length');
 
 function ceramic_setup() {
+    
+    // wp-content/languages/themes/ceramic-it_IT.mo
+    load_theme_textdomain( 'ceramic', trailingslashit( WP_LANG_DIR ) . 'themes/' );
+
+    // wp-content/themes/child-theme-name/languages/it_IT.mo
+    load_theme_textdomain( 'ceramic', get_stylesheet_directory() . '/languages' );
+
+    // wp-content/themes/storefront/languages/it_IT.mo
+    load_theme_textdomain( 'ceramic', get_template_directory() . '/languages' );
+        
     // Navigation Menus
     register_nav_menus(array(
-        'primary' => __('Primary Menu'),
-        'footer' => __('Footer Menu'),
+        'primary' => 'Primary Menu',
+        'footer' => 'Footer Menu'
     ));
 
     // Add featured image support
@@ -109,7 +119,7 @@ function ceramic_customize_register($wp_customize) {
      * Add logo setting section
      */
     $wp_customize->add_section('customize_logo_section', array(
-        'title' => __('Logo', 'ceramic'),
+        'title' => 'Logo',
         'priority' => 30,
         'description' => 'Upload a logo to replace the default site logo'
     ));
@@ -117,7 +127,7 @@ function ceramic_customize_register($wp_customize) {
     $wp_customize->add_setting('customize_logo_settings');
 
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'customize_logo_control', array(
-        'label' => __('Add Logo', 'ceramic'),
+        'label' => 'Add Logo',
         'section' => 'customize_logo_section',
         'settings' => 'customize_logo_settings'
     )));

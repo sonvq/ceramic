@@ -1,6 +1,6 @@
 .header {
     background: #ffffff;
-    height: 128px;
+    min-height: 128px;
 }
 
 .header .logo {
@@ -9,7 +9,7 @@
 }
 
 .header .first-row{
-    margin-top: 25px;
+    margin-top: 29px;
     background-color: #EBEBEB;
 
 }
@@ -26,25 +26,31 @@
     width: 100%;
 }
 
+.header .social-link {
+    padding: 0;
+    margin-top: 33px;
+}
+
+.header .social-link a {
+    display: inline-block;
+    float: right;
+    padding-left: 12px;
+}
+
+.header .social-link a:last-of-type {
+    padding-left: 0px;
+}
+
 .search-box {
     border: none;
-    width: 100%;
-    background-color: #EBEBEB;
-
+    background-color: #ededed;
     padding-left: 15px;
-    padding-bottom: 8px;
-    padding-top: 8px;
-    height: 35px;
+    height: 34px;
 }
 
 .product-list-input {
     border: none;
-    /*background-color: #EBEBEB;*/
-    /*margin-top: 35px;*/
-    /*padding-left: 15px;*/
-    /*padding-bottom: 8px;*/
-    /*padding-top: 8px;*/
-    height: 35px;
+    height: 34px;
 }
 
 .product-list-input input{
@@ -68,7 +74,7 @@
 }
 
 .product-basket{
-    margin-top: 25px;
+    margin-top: 29px;
     height: 35px;
     background-color: #969696;
     color: #ffffff;

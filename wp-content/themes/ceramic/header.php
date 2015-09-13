@@ -26,11 +26,9 @@
 
                         <div class="col-md-9">
                             <div class="row input-group">
-                                <div class="first-row col-md-8 col-sm-12 col-xs-12">
+                                <div class="first-row col-md-9 col-sm-12 col-xs-12">
                                     <div class="row">
-                                        <div class="col-md-7 col-sm-12 col-xs-12" style="padding-right: 1px">
-                                            <input type="text" class="form-control search-box" placeholder="Tìm kiếm">
-                                        </div>
+                                        <input type="text" class="col-md-7 col-sm-12 col-xs-12 search-box" placeholder="Tìm kiếm">
 
                                         <div class="col-md-5 col-sm-12 col-xs-12 product-list-input">
                                             <div class="input-group">
@@ -54,16 +52,21 @@
                                 </div>
 
                                 <div class="col-md-2 col-sm-12 col-xs-12">
-                                    <div class=" product-basket">
-                                        Giỏ hàng <b>5</b>
+                                    <div class="product-basket">
+                                        <?php echo __('Wish List', 'ceramic'); ?><b> 5</b>
                                     </div>
                                 </div>
-                                
-                                <div class="col-md-2 col-sm-12 col-xs-12">
-                                    <?php $facebookPostLink = get_post(); ?>
-                                    <a href="#"><img src="images/facebook_icon.png"></a>
-                                    <a href="#"><img src="images/camera_icon.png"></a>
-                                    <a href="#"><img src="images/wordpress_icon.png"></a>
+
+                                <div class="social-link col-md-1 col-sm-12 col-xs-12">                                    
+                                    <a target="_blank" href="<?php echo types_render_field('externallinks-url', array('post_id' => 96, 'output' => 'raw')); ?>">
+                                        <img src="<?php echo get_template_directory_uri() . '/images/wordpress-icon.png'; ?>">
+                                    </a>
+                                    <a target="_blank" href="<?php echo types_render_field('externallinks-url', array('post_id' => 95, 'output' => 'raw')); ?>">
+                                        <img src="<?php echo get_template_directory_uri() . '/images/instagram-icon.png'; ?>">
+                                    </a>
+                                    <a target="_blank" href="<?php echo types_render_field('externallinks-url', array('post_id' => 94, 'output' => 'raw')); ?>">
+                                        <img src="<?php echo get_template_directory_uri() . '/images/facebook-icon.png'; ?>">
+                                    </a>
                                 </div>
                             </div>
 

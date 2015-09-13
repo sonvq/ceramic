@@ -1,0 +1,55 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Ceramic\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: Mon Sep 14 2015 00:52:14 GMT+0700 (SE Asia Standard Time)\n"
+"PO-Revision-Date: Mon Sep 14 2015 00:53:32 GMT+0700 (SE Asia Standard Time)\n"
+"Last-Translator: ceramic <vuquangson1610@gmail.com>\n"
+"Language-Team: \n"
+"Language: Vietnamese\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Loco-Target-Locale: vi_VN\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: ../header.php:56
+msgid "Wish List"
+msgstr "Mong muốn"
+
+#. Name of the template
+msgid "Special Layout"
+msgstr "Special Layout"
+
+#. Name of the theme
+msgid "Ceramic"
+msgstr "Ceramic"
+
+#. Theme URI of the theme
+msgid "http://ceramic.com"
+msgstr "http://ceramic.com"
+
+#. Description of the theme
+msgid ""
+"Our 2015 default theme is clean, blog-focused, and designed for clarity. "
+"Ceramic's simple, straightforward typography is readable on a wide variety "
+"of screen sizes, and suitable for multiple languages. We designed it using a "
+"mobile-first approach, meaning your content takes center-stage, regardless "
+"of whether your visitors arrive by smartphone, tablet, laptop, or desktop "
+"computer."
+msgstr ""
+"Our 2015 default theme is clean, blog-focused, and designed for clarity. "
+"Ceramic's simple, straightforward typography is readable on a wide variety "
+"of screen sizes, and suitable for multiple languages. We designed it using a "
+"mobile-first approach, meaning your content takes center-stage, regardless "
+"of whether your visitors arrive by smartphone, tablet, laptop, or desktop "
+"computer."
