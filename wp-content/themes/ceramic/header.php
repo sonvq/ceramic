@@ -7,27 +7,153 @@
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>>
-        <div class="container">
-            <!-- site-header -->
-            <header class="site-header">
-                <div class="hd-search">
-                    <?php get_search_form(); ?>
+        <!--    HEADER  -->
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="header">
+                        <div class="col-md-3">
+                            <?php if(get_theme_mod('customize_logo_settings')) : ?>
+                                <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                                    <img width="121" height="96" alt="<?php bloginfo('name'); ?>" src="<?php echo esc_url(get_theme_mod('customize_logo_settings')); ?>"/>
+                                </a>
+                            <?php else : ?>
+                                <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                                    <img width="121" height="96" alt="<?php bloginfo('name'); ?>" src="<?php echo get_template_directory_uri() . '/images/th-ceramic-logo.png'; ?>"/>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="col-md-9">
+                            <div class="row input-group">
+                                <div class="first-row col-md-8 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-7 col-sm-12 col-xs-12" style="padding-right: 1px">
+                                            <input type="text" class="form-control search-box" placeholder="Tìm kiếm">
+                                        </div>
+
+                                        <div class="col-md-5 col-sm-12 col-xs-12 product-list-input">
+                                            <div class="input-group">
+                                                <div class="dropdown">
+                                                    <div class="dropdown-toggle " id="product-list-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                        <input type="text" class="form-control" placeholder="Danh mục sản phẩm" aria-describedby="basic-addon2">
+                                                    </div>
+
+                                                    <ul class="dropdown-menu" aria-labelledby="product-list-dropdown">
+                                                        <li><a href="#">Ngói đất nung</a></li>
+                                                        <li><a href="#">Ngói tráng men</a></li>
+                                                        <li><a href="#">Phụ kiện mái lợp</a></li>
+                                                        <li><a href="#">Lan can gốm sứ</a></li>
+                                                    </ul>
+                                                </div>
+
+                                                <span class="input-group-addon search-btn" style="right: -15px; position:relative;"><span class="glyphicon glyphicon-search" style="font-size: large;"></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2 col-sm-12 col-xs-12">
+                                    <div class=" product-basket">
+                                        Giỏ hàng <b>5</b>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-2 col-sm-12 col-xs-12">
+                                    <?php $facebookPostLink = get_post(); ?>
+                                    <a href="#"><img src="images/facebook_icon.png"></a>
+                                    <a href="#"><img src="images/camera_icon.png"></a>
+                                    <a href="#"><img src="images/wordpress_icon.png"></a>
+                                </div>
+                            </div>
+
+                            <!--<hr />-->
+
+                            <!-- NAVIGATION BAR -->
+                            <nav class="row navbar navbar-default">
+                                <div class="container-fluid">
+                                    <!-- Brand and toggle get grouped for better mobile display -->
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                        <!--<a class="navbar-brand" href="#">Brand</a>-->
+                                    </div>
+
+                                    <!-- Collect the nav links, forms, and other content for toggling -->
+                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                        <ul class="nav navbar-nav">
+                                            <li><a href="#">TRANG CHỦ</a></li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TH SỨ <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#">Menu 1</a></li>
+                                                    <li><a href="#">Menu 2</a></li>
+                                                    <li><a href="#">3</a></li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TH GỐM <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#">Menu 1</a></li>
+                                                    <li><a href="#">Menu 2</a></li>
+                                                    <li><a href="#">3</a></li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DỰ ÁN <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#">Menu 1</a></li>
+                                                    <li><a href="#">Menu 2</a></li>
+                                                    <li><a href="#">3</a></li>
+                                                </ul>
+                                            </li>
+
+                                            <li><a href="#">TH CERAMICS</a></li>
+                                            <li><a href="#">LIÊN HỆ</a></li>
+                                        </ul>
+
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li><a href="#"><img src="images/facebook_icon.png"></a></li>
+                                            <li><a href="#"><img src="images/camera_icon.png"></a></li>
+                                            <li><a href="#"><img src="images/wordpress_icon.png"></a></li>
+                                        </ul>
+                                    </div><!-- /.navbar-collapse -->
+                                </div><!-- /.container-fluid -->
+                            </nav>
+                            <!-- END NAVIGATION BAR-->
+                        </div>
+                    </div>
                 </div>
-                <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-                <h5>
-                    <?php bloginfo('description'); ?>
-                    <?php if (is_page('lien-he')) : ?>
-                        - Thank you for viewing contact page
-                    <?php endif; ?>
-                </h5>
+            </div>
+        </header>
+        <!--      End Header      -->
+        
+        <!-- site-header -->
+        <header class="site-header">
+            <div class="hd-search">
+                <?php get_search_form(); ?>
+            </div>
+            <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+            <h5>
+                <?php bloginfo('description'); ?>
+                <?php if (is_page('lien-he')) : ?>
+                    - Thank you for viewing contact page
+                <?php endif; ?>
+            </h5>
 
 
-                <nav class="site-nav">
-                    <?php
-                    $args = array(
-                        'theme_location' => 'primary'
-                    );
-                    ?>
-                    <?php wp_nav_menu($args); ?>
-                </nav>
-            </header>
+            <nav class="site-nav">
+                <?php
+                $args = array(
+                    'theme_location' => 'primary'
+                );
+                ?>
+                <?php wp_nav_menu($args); ?>
+            </nav>
+        </header>

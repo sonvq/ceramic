@@ -32,7 +32,6 @@
     <p><?php bloginfo('name'); ?> - &COPY; <?php echo date('Y'); ?></p>
 
 </footer>
-</div>
 
 <?php wp_footer(); ?>   
 
