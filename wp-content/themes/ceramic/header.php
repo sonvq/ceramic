@@ -32,6 +32,7 @@
 
                                         <div class="col-md-5 col-sm-12 col-xs-12 product-list-input">
                                             <div class="input-group">
+                                                <span class="product-devider"></span>
                                                 <div class="dropdown">
                                                     <div class="dropdown-toggle " id="product-list-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                                         <input type="text" class="form-control" placeholder="Danh mục sản phẩm" aria-describedby="basic-addon2">

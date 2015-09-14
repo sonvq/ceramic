@@ -22,7 +22,7 @@
 }
 
 .header .dropdown-menu {
-    margin-top: 25px;
+    margin-top: 33px;
     width: 100%;
 }
 
@@ -57,7 +57,18 @@
     border: none;
     background-color: #EBEBEB;
     border-radius: 0px;
-    height: 35px;
+    height: 34px;
+}
+
+.product-list-input .product-devider {
+    background: url(../images/devider.png);
+    display: block;
+    width: 1px;
+    height: 19px;
+    position: absolute;
+    top: 8px;
+    left: 0px;
+    z-index: 9999;
 }
 
 .dropdown .caret{
