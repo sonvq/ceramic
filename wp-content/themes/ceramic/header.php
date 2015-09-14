@@ -25,32 +25,8 @@
                         </div>
 
                         <div class="col-md-9">
-                            <div class="row input-group">
-                                <div class="first-row col-md-9 col-sm-12 col-xs-12">
-                                    <div class="row">
-                                        <input type="text" class="col-md-7 col-sm-12 col-xs-12 search-box" placeholder="Tìm kiếm">
-
-                                        <div class="col-md-5 col-sm-12 col-xs-12 product-list-input">
-                                            <div class="input-group">
-                                                <span class="product-devider"></span>
-                                                <div class="dropdown">
-                                                    <div class="dropdown-toggle " id="product-list-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                        <input type="text" class="form-control" placeholder="Danh mục sản phẩm" aria-describedby="basic-addon2">
-                                                    </div>
-
-                                                    <ul class="dropdown-menu" aria-labelledby="product-list-dropdown">
-                                                        <li><a href="#">Ngói đất nung</a></li>
-                                                        <li><a href="#">Ngói tráng men</a></li>
-                                                        <li><a href="#">Phụ kiện mái lợp</a></li>
-                                                        <li><a href="#">Lan can gốm sứ</a></li>
-                                                    </ul>
-                                                </div>
-
-                                                <span class="input-group-addon search-btn" style="right: -15px; position:relative;"><span class="glyphicon glyphicon-search" style="font-size: large;"></span></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="row">
+                                <?php get_search_form(); ?>
 
                                 <div class="col-md-2 col-sm-12 col-xs-12">
                                     <div class="product-basket">

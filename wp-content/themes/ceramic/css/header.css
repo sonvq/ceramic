@@ -53,6 +53,23 @@
     height: 34px;
 }
 
+.product-list-input select {
+    background-color: #ededed;
+    border: none;
+    outline: none;
+    height: 34px;
+}
+
+.product-list-input select:required:invalid {
+    color: #999999;
+}
+.product-list-input select option[value=""][disabled] {
+    display: none;
+}
+.product-list-input select option {
+    color: black;
+}
+
 .product-list-input input{
     border: none;
     background-color: #EBEBEB;
