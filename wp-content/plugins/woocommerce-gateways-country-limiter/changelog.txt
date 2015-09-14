@@ -1,0 +1,15 @@
+*** WooCommerce Gateways Country Limiter ***
+
+2015.04.01 - version 1.1
+ * mark compatibility with WooCommerce 2.3.7 and WordPress 4.2
+ * fixed a typo
+
+2014.05.22 - version 1.0.3
+ * fixes for wc_enqueue_js backwards compatibility
+ * tested compatibility with lower versions of WooCommerce and WordPress
+
+2014.04.02 - version 1.0.1
+ * wc_enqueue_js backwards compatibility
+ 
+2014.03.07 - version 1.0
+ * First Release
