@@ -15,14 +15,6 @@ $args = array(
     'hide_empty' => $empty
 );
 $all_categories = get_categories($args);
-
-if (count($all_categories)) {
-    foreach ($all_categories as $key => $cat) {
-        if ($cat->category_parent == 0) {
-            unset($all_categories[$key]);
-        }
-    }
-}
 ?>
 <form class="first-row col-md-9 col-sm-12 col-xs-12" role="search" method="get" action="<?php echo get_permalink(woocommerce_get_page_id('shop')); ?>">
     <div class="row">
@@ -30,18 +22,50 @@ if (count($all_categories)) {
         <input class="col-md-7 col-sm-12 col-xs-12 search-box" name="s" type="text" placeholder="<?php echo (the_search_query()) ? the_search_query() : __('Tìm kiếm', 'ceramic'); ?>" />
         <div class="col-md-5 col-sm-12 col-xs-12 product-list-input">
             <span class="product-devider"></span>
+            <span class="dropdown-arrow"></span>
             <select required name="category">
                 <option value="" disabled selected><?php echo __('Danh mục sản phẩm', 'ceramic'); ?></option>
                 <?php if (count($all_categories)) : ?>
-                    <?php foreach ($all_categories as $single_category) : ?>
-                        <option value="<?php echo $single_category->slug?>" <?php echo ($single_category->slug == $_GET['category']) ? 'selected' : ''; ?>> 
-                            <?php echo $single_category->name; ?>
-                        </option>
+                    <?php
+                    foreach ($all_categories as $cat) :
+                        if ($cat->category_parent == 0) {
+                            $category_id = $cat->term_id;
+
+                            $args2 = array(
+                                'taxonomy' => $taxonomy,
+                                'child_of' => 0,
+                                'parent' => $category_id,
+                                'orderby' => $orderby,
+                                'show_count' => $show_count,
+                                'pad_counts' => $pad_counts,
+                                'hierarchical' => $hierarchical,
+                                'title_li' => $title,
+                                'hide_empty' => $empty
+                            );
+                            $sub_cats = get_categories($args2);
+                            if ($sub_cats) {
+                                echo '<optgroup label="' . $cat->name . '">';
+                                foreach ($sub_cats as $sub_category) :
+                                    ?>
+                                    <option value="<?php echo $sub_category->slug ?>" <?php echo ($sub_category->slug == $_GET['category']) ? 'selected' : ''; ?>> 
+                                    <?php echo $sub_category->name; ?>
+                                    </option>
+                                <?php
+                                endforeach;
+                                echo '</optgroup>';
+                            } else { ?>
+                                <option value="<?php echo $cat->slug ?>" <?php echo ($cat->slug == $_GET['category']) ? 'selected' : ''; ?>> 
+                                <?php echo $cat->name; ?>
+                                </option>
+                            <?php }
+                                
+                        }
+                        ?>                               
+
                     <?php endforeach; ?>
                 <?php endif; ?>
-
             </select>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" class="submit-search-btn"></button>
     </div>
 </form>

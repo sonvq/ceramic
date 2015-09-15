@@ -115,20 +115,7 @@
         <!--      End Header      -->
         
         <!-- site-header -->
-        <header class="site-header">
-            <div class="hd-search">
-                <?php get_search_form(); ?>
-            </div>
-            <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-            <h5>
-                <?php bloginfo('description'); ?>
-                <?php if (is_page('lien-he')) : ?>
-                    - Thank you for viewing contact page
-                <?php endif; ?>
-            </h5>
-
-
-            <nav class="site-nav">
+        <nav class="site-nav">
                 <?php
                 $args = array(
                     'theme_location' => 'primary'
@@ -136,4 +123,3 @@
                 ?>
                 <?php wp_nav_menu($args); ?>
             </nav>
-        </header>
