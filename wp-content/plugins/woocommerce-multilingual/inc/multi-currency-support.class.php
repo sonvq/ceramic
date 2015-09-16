@@ -44,8 +44,11 @@ class WCML_Multi_Currency_Support{
         add_filter( 'woocommerce_cart_subtotal', array( $this, 'filter_woocommerce_cart_subtotal'), 100, 3 );
 
         add_action( 'update_option_woocommerce_currency', array( $this, 'set_default_currencies_languages' ), 10, 2 );
+
+
+
     }
-    
+
     function _load_filters(){
         $load = false;
         
@@ -166,8 +169,8 @@ class WCML_Multi_Currency_Support{
             }
         }
         
-        $this->currency_codes = array_keys($this->currencies); 
-        
+        $this->currency_codes = array_keys($this->currencies);
+
         // default language currencies
         foreach($active_languages as $language){
             if(!isset($woocommerce_wpml->settings['default_currencies'][$language['code']])){
@@ -189,7 +192,17 @@ class WCML_Multi_Currency_Support{
                 }
             }
         }
-        
+
+        // add missing currencies to currencies_order
+        if(isset($woocommerce_wpml->settings['currencies_order'])){
+            foreach ($this->currency_codes as $currency) {
+                if (!in_array($currency, $woocommerce_wpml->settings['currencies_order'])) {
+                    $woocommerce_wpml->settings['currencies_order'][] = $currency;
+                    $save_to_db = true;
+                }
+            }
+        }
+
         if($save_to_db){
             $woocommerce_wpml->update_settings();                
         }
@@ -367,7 +380,7 @@ class WCML_Multi_Currency_Support{
         
         exit;
     }
-    
+
     function currencies_list(){
         $nonce = filter_input( INPUT_POST, 'wcml_nonce', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
         if(!$nonce || !wp_verify_nonce($nonce, 'wcml_currencies_list')){
@@ -700,7 +713,7 @@ class WCML_Multi_Currency_Support{
     
     function product_price_filter($null, $object_id, $meta_key, $single){
         global $sitepress;
-        
+
         static $no_filter = false;
                 
         if(empty($no_filter) && in_array(get_post_type($object_id), array('product', 'product_variation'))){
@@ -1031,7 +1044,7 @@ class WCML_Multi_Currency_Support{
             }
 
         }
-        
+
         return $methods;
     }
     
@@ -1057,7 +1070,7 @@ class WCML_Multi_Currency_Support{
         
         return $settings;
     }
-    
+
     function adjust_min_amount_required($options){
         
         if(!empty($options['min_amount'])){
@@ -1150,6 +1163,15 @@ class WCML_Multi_Currency_Support{
 
         return apply_filters('wcml_client_currency', $this->client_currency);
     }
+
+    function get_currency_details_by_code( $code ){
+
+        if( isset( $this->currencies[ $code ] ) ){
+            return $this->currencies[ $code ] ;
+        }
+
+        return false;
+    }
     
     function set_client_currency($currency){
         
@@ -1230,14 +1252,6 @@ class WCML_Multi_Currency_Support{
         }
 
         return $args;
-    }
-
-    function get_exchange_rates(){
-            
-        $exchange_rates = apply_filters('wcml_exchange_rates', $this->exchange_rates);
-        
-        return $exchange_rates;
-        
     }
 
     function legacy_update_custom_rates(){

@@ -44,9 +44,38 @@ class WCML_Store_Pages{
     }   
     
     function switch_pages_language( $pages ){
-        global $sitepress,$wpdb;
+        global $sitepress,$woocommerce_wpml;
 
-        $sitepress->switch_lang($sitepress->get_default_language());
+        $default_language = $sitepress->get_default_language();
+
+        if( $sitepress->get_current_language() != $default_language ){
+            foreach( $pages as $key => $page ){
+
+                switch( $key ){
+                    case 'shop':
+                        $page['name'] = 'shop';
+                        $page['title'] = 'Shop';
+                        break;
+                    case 'cart':
+                        $page['name'] = 'cart';
+                        $page['title'] = 'Cart';
+                        break;
+                    case 'checkout':
+                        $page['name'] = 'checkout';
+                        $page['title'] = 'Checkout';
+                        break;
+                    case 'myaccount':
+                        $page['name'] = 'my-account';
+                        $page['title'] = 'My account';
+                        break;
+                }
+
+                if( $sitepress->get_default_language() != 'en' ){
+                    $page['name'] = $woocommerce_wpml->terms->get_translation_from_woocommerce_mo_file( 'Page slug'.$page['name'], $default_language );
+                    $page['title'] = $woocommerce_wpml->terms->get_translation_from_woocommerce_mo_file( 'Page title'.$page['title'], $default_language );
+                }
+            }
+        }
 
         return $pages;
     }
@@ -153,19 +182,11 @@ class WCML_Store_Pages{
 
         if (
             !empty($this->shop_page) &&
+            $this->shop_page->post_status == 'publish' &&
             !empty($this->front_page_id) &&
             $q->get('post_type') != 'product' &&
-            ( $q->get('page_id') !== $this->front_page_id  &&
-                (
-                    $this->shop_page_id == $q->get('page_id') ||
-                    (
-                        isset($q->is_home) &&
-                        $q->is_home &&
-                        isset($q->is_posts_page) &&
-                        !$q->is_posts_page
-                    )
-                )
-            )
+            $q->get('page_id') !== $this->front_page_id  &&
+            $this->shop_page_id == $q->get('page_id')
         ){
             $q->set( 'post_type', 'product' );
             $q->set( 'page_id', '' );
@@ -351,8 +372,8 @@ class WCML_Store_Pages{
         
         foreach ($check_pages as $page) {
             $page_id = get_option($page);
-            
-                if(!$page_id || !get_post($page_id)){
+            $page_obj = get_post($page_id);
+                if(!$page_id || !$page_obj || $page_obj->post_status != 'publish' ){
                     return 'non_exist';
                 }
         }

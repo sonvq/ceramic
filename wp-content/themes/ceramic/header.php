@@ -13,12 +13,12 @@
                 <div class="row">
                     <div class="header">
                         <div class="col-md-3">
-                            <?php if(get_theme_mod('customize_logo_settings')) : ?>
-                                <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                            <?php if (get_theme_mod('customize_logo_settings')) : ?>
+                                <a class="logo" href="<?php echo esc_url(home_url('/')); ?>">
                                     <img width="121" height="96" alt="<?php bloginfo('name'); ?>" src="<?php echo esc_url(get_theme_mod('customize_logo_settings')); ?>"/>
                                 </a>
                             <?php else : ?>
-                                <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                                <a class="logo" href="<?php echo esc_url(home_url('/')); ?>">
                                     <img width="121" height="96" alt="<?php bloginfo('name'); ?>" src="<?php echo get_template_directory_uri() . '/images/th-ceramic-logo.png'; ?>"/>
                                 </a>
                             <?php endif; ?>
@@ -51,7 +51,16 @@
                                 <hr class="no-margin-bottom" />    
                             </div>
                             <div class="row">
-                                <?php $args = array('theme_location' => 'primary', 'menu_class' => 'primary-menu', 'container' => ''); ?>
+                                <?php
+                                $walker = new Nfr_Menu_Walker();
+                                $args = array(
+                                    'theme_location' => 'primary',
+                                    'menu_class' => 'primary-menu',
+                                    'container' => '',
+                                    'walker' => $walker
+                                );
+                                
+                                ?>
                                 <?php wp_nav_menu($args); ?>
                             </div>
                         </div>

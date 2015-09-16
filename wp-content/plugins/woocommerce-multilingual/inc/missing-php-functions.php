@@ -62,5 +62,17 @@ function wcml_check_wpml_functions(){
         }
     }
 
+    if( !has_filter( 'wpml_translate_single_string' ) ){
+        add_filter( 'wpml_translate_single_string', 'wcml_translate_single_string_filter', 10, 6 );
+    }
+
+}
+
+function wcml_translate_single_string_filter( $original_value, $context, $name, $language_code = null, $has_translation = null, $disable_auto_register = false ) {
+    if( is_string($name) && function_exists( 'icl_t' ) ){
+        return icl_t( $context, $name, $original_value, $has_translation, $disable_auto_register, $language_code );
+    }else{
+        return $original_value;
+    }
 }
 ?>
