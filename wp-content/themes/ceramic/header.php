@@ -47,79 +47,19 @@
                                 </div>
                             </div>
 
-                            <!--<hr />-->
-
-                            <!-- NAVIGATION BAR -->
-                            <nav class="row navbar navbar-default">
-                                <div class="container-fluid">
-                                    <!-- Brand and toggle get grouped for better mobile display -->
-                                    <div class="navbar-header">
-                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                            <span class="sr-only">Toggle navigation</span>
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                        </button>
-                                        <!--<a class="navbar-brand" href="#">Brand</a>-->
-                                    </div>
-
-                                    <!-- Collect the nav links, forms, and other content for toggling -->
-                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                        <ul class="nav navbar-nav">
-                                            <li><a href="#">TRANG CHỦ</a></li>
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TH SỨ <span class="caret"></span></a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="#">Menu 1</a></li>
-                                                    <li><a href="#">Menu 2</a></li>
-                                                    <li><a href="#">3</a></li>
-                                                </ul>
-                                            </li>
-
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TH GỐM <span class="caret"></span></a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="#">Menu 1</a></li>
-                                                    <li><a href="#">Menu 2</a></li>
-                                                    <li><a href="#">3</a></li>
-                                                </ul>
-                                            </li>
-
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DỰ ÁN <span class="caret"></span></a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="#">Menu 1</a></li>
-                                                    <li><a href="#">Menu 2</a></li>
-                                                    <li><a href="#">3</a></li>
-                                                </ul>
-                                            </li>
-
-                                            <li><a href="#">TH CERAMICS</a></li>
-                                            <li><a href="#">LIÊN HỆ</a></li>
-                                        </ul>
-
-                                        <ul class="nav navbar-nav navbar-right">
-                                            <li><a href="#"><img src="images/facebook_icon.png"></a></li>
-                                            <li><a href="#"><img src="images/camera_icon.png"></a></li>
-                                            <li><a href="#"><img src="images/wordpress_icon.png"></a></li>
-                                        </ul>
-                                    </div><!-- /.navbar-collapse -->
-                                </div><!-- /.container-fluid -->
-                            </nav>
-                            <!-- END NAVIGATION BAR-->
+                            <div class="row">
+                                <hr class="no-margin-bottom" />    
+                            </div>
+                            <div class="row">
+                                <?php $args = array('theme_location' => 'primary', 'menu_class' => 'primary-menu', 'container' => ''); ?>
+                                <?php wp_nav_menu($args); ?>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
+        <section class="main-slider">
+            <?php echo do_shortcode("[huge_it_slider id='2']"); ?>
+        </section>
         <!--      End Header      -->
-        
-        <!-- site-header -->
-        <nav class="site-nav">
-                <?php
-                $args = array(
-                    'theme_location' => 'primary'
-                );
-                ?>
-                <?php wp_nav_menu($args); ?>
-            </nav>
