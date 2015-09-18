@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width">
         <title><?php bloginfo('name'); ?></title>
         <?php wp_head(); ?>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     </head>
     <body <?php body_class(); ?>>
         <!--    HEADER  -->
