@@ -8,6 +8,10 @@
     margin-top: 16px;
 }
 
+.header .logo img {
+    margin-left: 18px;
+}
+
 .header .first-row{
     margin-top: 29px;
     background-color: #EBEBEB;
@@ -65,6 +69,7 @@
     line-height: 44px;
     z-index: 9999;
     margin-bottom: 0px;
+    padding-right: 15px;
 }
 .header ul.primary-menu li {
     display: inline-block;    

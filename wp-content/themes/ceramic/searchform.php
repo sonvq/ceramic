@@ -19,12 +19,12 @@ $all_categories = get_categories($args);
 <form class="first-row col-lg-9 col-md-8 col-sm-12 col-xs-12" role="search" method="get" action="<?php echo get_permalink(woocommerce_get_page_id('shop')); ?>">
     <div class="row">
         <input type="hidden" name="post_type" value="product" />
-        <input class="col-md-7 col-sm-12 col-xs-12 search-box" name="s" type="text" placeholder="<?php echo (the_search_query()) ? the_search_query() : __('Tìm kiếm', 'ceramic'); ?>" />
+        <input class="col-md-7 col-sm-12 col-xs-12 search-box" name="s" type="text" placeholder="<?php echo (the_search_query()) ? the_search_query() : __('Search', 'ceramic'); ?>" />
         <div class="col-md-5 col-sm-12 col-xs-12 product-list-input">
             <span class="product-devider"></span>
             <span class="dropdown-arrow"></span>
             <select required name="category">
-                <option value="" disabled selected><?php echo __('Danh mục sản phẩm', 'ceramic'); ?></option>
+                <option value="" disabled selected><?php echo __('Product Categories', 'ceramic'); ?></option>
                 <?php if (count($all_categories)) : ?>
                     <?php
                     foreach ($all_categories as $cat) :

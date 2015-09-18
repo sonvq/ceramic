@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Ceramic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Mon Sep 14 2015 00:52:14 GMT+0700 (SE Asia Standard Time)\n"
-"POT-Revision-Date: Mon Sep 14 2015 00:53:59 GMT+0700 (SE Asia Standard Time)\n"
+"POT-Revision-Date: Fri Sep 18 2015 18:28:47 GMT+0700 (SE Asia Standard Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: ceramic <vuquangson1610@gmail.com>\n"
 "Language-Team: \n"
@@ -26,7 +26,7 @@ msgstr ""
 "X-Generator: Loco - https://localise.biz/"
 
 #: ../header.php:56
-msgctxt "Wish List"
+msgctxt "Mong muốn"
 msgid "Wish List"
 msgstr ""
 

@@ -8,6 +8,7 @@ add_filter('show_admin_bar', '__return_false');
 /*
  * Function to include stylesheet and javascript
  */
+
 function ceramic_resources() {
     wp_enqueue_style('ceramic-bootstrap-min', get_template_directory_uri() . '/css/bootstrap.min.css', array(), null, 'all');
     wp_enqueue_style('ceramic-header', get_template_directory_uri() . '/css/header.css', array(), null, 'all');
@@ -51,16 +52,16 @@ function custom_excerpt_length() {
 add_filter('excerpt_length', 'custom_excerpt_length');
 
 function ceramic_setup() {
-    
+
     // wp-content/languages/themes/ceramic-it_IT.mo
-    load_theme_textdomain( 'ceramic', trailingslashit( WP_LANG_DIR ) . 'themes/' );
+    load_theme_textdomain('ceramic', trailingslashit(WP_LANG_DIR) . 'themes/');
 
     // wp-content/themes/child-theme-name/languages/it_IT.mo
-    load_theme_textdomain( 'ceramic', get_stylesheet_directory() . '/languages' );
+    load_theme_textdomain('ceramic', get_stylesheet_directory() . '/languages');
 
     // wp-content/themes/storefront/languages/it_IT.mo
-    load_theme_textdomain( 'ceramic', get_template_directory() . '/languages' );
-        
+    load_theme_textdomain('ceramic', get_template_directory() . '/languages');
+
     // Navigation Menus
     register_nav_menus(array(
         'primary' => 'Primary Menu',
@@ -92,22 +93,22 @@ function ourWidgetsInit() {
     ));
 
     register_sidebar(array(
-        'name' => 'Footer Area 1',
+        'name' => __('Footer Area 1', 'ceramic'),
         'id' => 'footer1'
     ));
 
     register_sidebar(array(
-        'name' => 'Footer Area 2',
+        'name' => __('Footer Area 2', 'ceramic'),
         'id' => 'footer2'
     ));
 
     register_sidebar(array(
-        'name' => 'Footer Area 3',
+        'name' => __('Footer Area 3', 'ceramic'),
         'id' => 'footer3'
     ));
 
     register_sidebar(array(
-        'name' => 'Footer Area 4',
+        'name' => __('Footer Area 4', 'ceramic'),
         'id' => 'footer4'
     ));
 }
@@ -136,94 +137,94 @@ function ceramic_customize_register($wp_customize) {
 
 add_action('customize_register', 'ceramic_customize_register');
 
-
-// advanced search functionality
+// Advanced search functionality
 function advanced_search_query($query) {
 
-    if($query->is_search()) {
+    if ($query->is_search()) {
         // category terms search.
         if (isset($_GET['category']) && !empty($_GET['category'])) {
             $query->set('tax_query', array(array(
-                'taxonomy' => 'product_cat',
-                'field' => 'slug',
-                'terms' => array($_GET['category']) )
+                    'taxonomy' => 'product_cat',
+                    'field' => 'slug',
+                    'terms' => array($_GET['category']))
             ));
-        }    
+        }
         return $query;
     }
 }
+
 add_action('pre_get_posts', 'advanced_search_query', 1000);
 
+class Nfr_Menu_Walker extends Walker_Nav_Menu {
 
-class Nfr_Menu_Walker extends Walker_Nav_Menu{
+    /**
+     * Traverse elements to create list from elements.
+     *
+     * Display one element if the element doesn't have any children otherwise,
+     * display the element and its children. Will only traverse up to the max
+     * depth and no ignore elements under that depth. It is possible to set the
+     * max depth to include all depths, see walk() method.
+     *
+     * This method shouldn't be called directly, use the walk() method instead.
+     *
+     * @since 2.5.0
+     *
+     * @param object $element Data object
+     * @param array $children_elements List of elements to continue traversing.
+     * @param int $max_depth Max depth to traverse.
+     * @param int $depth Depth of current element.
+     * @param array $args
+     * @param string $output Passed by reference. Used to append additional content.
+     * @return null Null on failure with no changes to parameters.
+     */
+    function display_element($element, &$children_elements, $max_depth, $depth = 0, $args, &$output) {
 
-                /**
-         * Traverse elements to create list from elements.
-         *
-         * Display one element if the element doesn't have any children otherwise,
-         * display the element and its children. Will only traverse up to the max
-         * depth and no ignore elements under that depth. It is possible to set the
-         * max depth to include all depths, see walk() method.
-         *
-         * This method shouldn't be called directly, use the walk() method instead.
-         *
-         * @since 2.5.0
-         *
-         * @param object $element Data object
-         * @param array $children_elements List of elements to continue traversing.
-         * @param int $max_depth Max depth to traverse.
-         * @param int $depth Depth of current element.
-         * @param array $args
-         * @param string $output Passed by reference. Used to append additional content.
-         * @return null Null on failure with no changes to parameters.
-         */
-        function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
+        if (!$element)
+            return;
 
-                if ( !$element )
-                        return;
+        $id_field = $this->db_fields['id'];
 
-                $id_field = $this->db_fields['id'];
+        // Display this element
+        if (is_array($args[0]))
+            $args[0]['has_children'] = !empty($children_elements[$element->$id_field]);
 
-                //display this element
-                if ( is_array( $args[0] ) )
-                        $args[0]['has_children'] = ! empty( $children_elements[$element->$id_field] );
-
-                //Adds the 'parent' class to the current item if it has children               
-                if( ! empty( $children_elements[$element->$id_field] ) ) {
-                        array_push($element->classes,'parent');
-                        $element->title .= ' <span class="dropdown-arrow"></span>';
-                }
-
-                $cb_args = array_merge( array(&$output, $element, $depth), $args);
-
-                call_user_func_array(array(&$this, 'start_el'), $cb_args);
-
-                $id = $element->$id_field;
-
-                // descend only when the depth is right and there are childrens for this element
-                if ( ($max_depth == 0 || $max_depth > $depth+1 ) && isset( $children_elements[$id]) ) {
-
-                        foreach( $children_elements[ $id ] as $child ){
-
-                                if ( !isset($newlevel) ) {
-                                        $newlevel = true;
-                                        //start the child delimiter
-                                        $cb_args = array_merge( array(&$output, $depth), $args);
-                                        call_user_func_array(array(&$this, 'start_lvl'), $cb_args);
-                                }
-                                $this->display_element( $child, $children_elements, $max_depth, $depth + 1, $args, $output );
-                        }
-                        unset( $children_elements[ $id ] );
-                }
-
-                if ( isset($newlevel) && $newlevel ){
-                        //end the child delimiter
-                        $cb_args = array_merge( array(&$output, $depth), $args);
-                        call_user_func_array(array(&$this, 'end_lvl'), $cb_args);
-                }
-
-                //end this element
-                $cb_args = array_merge( array(&$output, $element, $depth), $args);
-                call_user_func_array(array(&$this, 'end_el'), $cb_args);
+        // Adds the 'parent' class to the current item if it has children               
+        if (!empty($children_elements[$element->$id_field])) {
+            array_push($element->classes, 'parent');
+            $element->title .= ' <span class="dropdown-arrow"></span>';
         }
+
+        $cb_args = array_merge(array(&$output, $element, $depth), $args);
+
+        call_user_func_array(array(&$this, 'start_el'), $cb_args);
+
+        $id = $element->$id_field;
+
+        // Descend only when the depth is right and there are childrens for this element
+        if (($max_depth == 0 || $max_depth > $depth + 1 ) && isset($children_elements[$id])) {
+
+            foreach ($children_elements[$id] as $child) {
+
+                if (!isset($newlevel)) {
+                    $newlevel = true;
+                    // Start the child delimiter
+                    $cb_args = array_merge(array(&$output, $depth), $args);
+                    call_user_func_array(array(&$this, 'start_lvl'), $cb_args);
+                }
+                $this->display_element($child, $children_elements, $max_depth, $depth + 1, $args, $output);
+            }
+            unset($children_elements[$id]);
+        }
+
+        if (isset($newlevel) && $newlevel) {
+            // End the child delimiter
+            $cb_args = array_merge(array(&$output, $depth), $args);
+            call_user_func_array(array(&$this, 'end_lvl'), $cb_args);
+        }
+
+        // End this element
+        $cb_args = array_merge(array(&$output, $element, $depth), $args);
+        call_user_func_array(array(&$this, 'end_el'), $cb_args);
+    }
+
 }
