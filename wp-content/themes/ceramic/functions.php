@@ -64,7 +64,8 @@ function ceramic_setup() {
     // Navigation Menus
     register_nav_menus(array(
         'primary' => 'Primary Menu',
-        'footer' => 'Footer Menu'
+        'footer' => 'Footer Menu',
+        'sidebar' => 'Sidebar Menu',
     ));
 
     // Add featured image support

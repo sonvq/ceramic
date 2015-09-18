@@ -27,14 +27,32 @@
 }
 
 .header .social-link {
-    padding: 0;
-    margin-top: 33px;
+    display: inline-block;
+    float: right;
+    margin-top: 6px;
+}
+
+.header .social-link-container {
+    margin-top: 29px;
+}
+
+.product-basket {    
+    height: 35px;
+    background-color: #fff;
+    border: 1px solid rgb( 214, 214, 214 );
+    color: #666666;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    padding: 7px 12px 7px 12px;
+    text-align: center;
+    display: inline-block;
+    float: left;
 }
 
 .header .social-link a {
     display: inline-block;
     float: right;
-    padding-left: 12px;
+    padding-left: 14px;
 }
 
 .header .social-link a:last-of-type {
@@ -94,6 +112,35 @@
     opacity: 0.8;
     background-color: rgb( 0, 0, 0 );
     width: 180px;
+    border-bottom: 1px solid #363c40;
+}
+
+.header ul.primary-menu ul li:last-of-type {
+    border-bottom: none;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute-container {
+    position: absolute;
+    top: 0px;
+    z-index: 999;
+    width: 100%;
+}
+
+.slider-devider {
+    opacity: 0.2;
+    background-color: #000;
+    height: 5px;
+    margin: 0;
+    border: none;
+    outline: none;
+}
+
+.no-padding-left {
+    padding-left: 0px;
 }
 
 .header ul.primary-menu ul li:hover {
@@ -158,7 +205,7 @@
 }
 
 .product-list-input .dropdown-arrow {
-    background: url(../images/arrow-select-arrow.png);
+    background: url(../images/arrow-select-arrow.png) no-repeat;
     width: 9px;
     height: 5px;
     position: absolute;
@@ -187,7 +234,7 @@
 }
 
 .submit-search-btn {
-    background: url(../images/search-btn.png);
+    background: url(../images/search-btn.png) no-repeat;
     width: 37px;
     height: 34px;
     position: absolute;
@@ -204,7 +251,7 @@
 }
 
 .product-list-input .product-devider {
-    background: url(../images/devider.png);
+    background: url(../images/devider.png) no-repeat;
     display: block;
     width: 1px;
     height: 19px;
@@ -212,10 +259,6 @@
     top: 8px;
     left: 0px;
     z-index: 9999;
-}
-
-.dropdown .caret{
-    color: #cdcdcd;
 }
 
 .search-btn {
@@ -226,37 +269,171 @@
     border: none;
 }
 
-.product-basket{
-    margin-top: 29px;
-    height: 35px;
-    background-color: #fff;
-    border: 1px solid rgb( 214, 214, 214 );
-    color: #666666;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 12px;
-    padding: 7px;
-    text-align: center;
-    width: 100%;
-    max-width: 100%;
-}
-
 .no-padding{
     padding-left: 0px;
     padding-right: 0px;
 }
 
-.header .navbar{
-    height: 42px;
-    background: transparent;
-    border: none;
-    border-top: 1px solid #CCCCCC;
-    border-radius: 0px;
-    margin-top: 20px;
-    margin-bottom: 0px;
+.meunu-sidebar ul,
+.meunu-sidebar ul li,
+.meunu-sidebar ul ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.header .navbar-nav > li > a {padding-top:10px !important; padding-bottom:10px !important;}
-.header .navbar {min-height:42px !important}
-.header .navbar .container-fluid {padding-left: 0px !important}
-.header .navbar .navbar-collapse {padding-left: 0px !important}
-.header .navbar-right > li > a {padding: 2px}
+.meunu-sidebar ul {
+    position: relative;
+    z-index: 500;
+    float: left;
+}
+
+.meunu-sidebar ul li {
+    float: left;
+    vertical-align: middle;
+    position: relative;
+}
+
+.meunu-sidebar ul li.hover,
+.meunu-sidebar ul li:hover {
+    position: relative;
+    z-index: 510;
+    cursor: default;
+}
+
+.meunu-sidebar ul li .dropdown-arrow {
+    background: url(../images/arrow-gray-right.png) no-repeat;
+    width: 5px;
+    height: 9px;
+    position: absolute;
+    right: 16px;
+    top: 15px;
+}
+
+.meunu-sidebar ul li:hover .dropdown-arrow {
+    background: url(../images/arrow-white-right.png) no-repeat;
+}
+
+.meunu-sidebar ul ul {
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    z-index: 520;
+    width: 100%;
+}
+
+.meunu-sidebar ul ul li { 
+    float: none; 
+}
+
+.meunu-sidebar ul ul ul {
+    top: 0;
+    right: 0;
+}
+
+.meunu-sidebar ul li:hover > ul { 
+    visibility: visible; 
+}
+
+.meunu-sidebar ul ul {
+    top: 0;
+    left: 100%;
+}
+
+.meunu-sidebar ul li { 
+    float: none; 
+    border-bottom: 1px solid #363c40;
+}
+.meunu-sidebar ul li:last-of-type {
+    border-bottom: none;
+}
+
+.main-slider {
+    overflow: hidden;
+}
+
+.no-height {
+    height: 0px;
+}
+
+.meunu-sidebar {
+    padding: 0;
+    margin: 0;
+    margin-top: -5px;
+    border: 0;
+    position: relative;
+    min-height: 550px;
+}
+	
+.meunu-sidebar:before {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    opacity: 0.8;
+    width: 100%;
+    min-height: 550px;
+    background: #000;	
+}
+
+.meunu-sidebar a {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    display: block;
+    padding: 11px 0px 11px 22px;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.meunu-sidebar > ul { 
+    width: 100%; 
+}
+
+.meunu-sidebar ul ul { 
+    width: 100%; 
+}
+
+.meunu-sidebar > ul > li > a {
+    color: #ffffff;
+}
+
+.meunu-sidebar > ul > li > a:hover { 
+    color: #ffffff; 
+}
+
+.meunu-sidebar ul li:hover a { 
+    opacity: 1.0;
+    background: #000;
+}
+
+.meunu-sidebar ul li ul li { 
+    opacity: 0.8;
+    background: #000;
+}
+
+.meunu-sidebar ul li ul li:hover { 
+    opacity: 1.0;
+    background: #000;
+}
+
+.meunu-sidebar li { 
+    position: relative; 
+}
+
+.meunu-sidebar ul ul a { 
+    color: #ffffff; 
+}
+
+.meunu-sidebar ul ul a:hover { 
+    color: #ffffff; 
+}
+
+.meunu-sidebar ul ul li { 
+    border-bottom: 1px solid #363c40;
+}
+
+.meunu-sidebar ul ul li:hover > a {
+    background: #000;
+    color: #ffffff;
+}

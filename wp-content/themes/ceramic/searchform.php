@@ -16,7 +16,7 @@ $args = array(
 );
 $all_categories = get_categories($args);
 ?>
-<form class="first-row col-md-9 col-sm-12 col-xs-12" role="search" method="get" action="<?php echo get_permalink(woocommerce_get_page_id('shop')); ?>">
+<form class="first-row col-lg-9 col-md-8 col-sm-12 col-xs-12" role="search" method="get" action="<?php echo get_permalink(woocommerce_get_page_id('shop')); ?>">
     <div class="row">
         <input type="hidden" name="post_type" value="product" />
         <input class="col-md-7 col-sm-12 col-xs-12 search-box" name="s" type="text" placeholder="<?php echo (the_search_query()) ? the_search_query() : __('Tìm kiếm', 'ceramic'); ?>" />

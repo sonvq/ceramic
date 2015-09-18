@@ -28,27 +28,28 @@
                             <div class="row">
                                 <?php get_search_form(); ?>
 
-                                <div class="col-md-2 col-sm-12 col-xs-12">
+                                <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 social-link-container">
                                     <div class="product-basket">
                                         <?php echo __('Wish List', 'ceramic'); ?><b> 5</b>
                                     </div>
-                                </div>
-
-                                <div class="social-link col-md-1 col-sm-12 col-xs-12">                                    
-                                    <a target="_blank" href="<?php echo types_render_field('externallinks-url', array('post_id' => 96, 'output' => 'raw')); ?>">
-                                        <img src="<?php echo get_template_directory_uri() . '/images/wordpress-icon.png'; ?>">
-                                    </a>
-                                    <a target="_blank" href="<?php echo types_render_field('externallinks-url', array('post_id' => 95, 'output' => 'raw')); ?>">
-                                        <img src="<?php echo get_template_directory_uri() . '/images/instagram-icon.png'; ?>">
-                                    </a>
-                                    <a target="_blank" href="<?php echo types_render_field('externallinks-url', array('post_id' => 94, 'output' => 'raw')); ?>">
-                                        <img src="<?php echo get_template_directory_uri() . '/images/facebook-icon.png'; ?>">
-                                    </a>
+                                    <div class="social-link">
+                                        <a target="_blank" href="<?php echo types_render_field('externallinks-url', array('post_id' => 96, 'output' => 'raw')); ?>">
+                                            <img src="<?php echo get_template_directory_uri() . '/images/wordpress-icon.png'; ?>">
+                                        </a>
+                                        <a target="_blank" href="<?php echo types_render_field('externallinks-url', array('post_id' => 95, 'output' => 'raw')); ?>">
+                                            <img src="<?php echo get_template_directory_uri() . '/images/instagram-icon.png'; ?>">
+                                        </a>
+                                        <a target="_blank" href="<?php echo types_render_field('externallinks-url', array('post_id' => 94, 'output' => 'raw')); ?>">
+                                            <img src="<?php echo get_template_directory_uri() . '/images/facebook-icon.png'; ?>">
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <hr class="no-margin-bottom" />    
+                                <div class="col-md-12 no-padding-left">
+                                    <hr class="no-margin-bottom" />    
+                                </div>
                             </div>
                             <div class="row">
                                 <?php
@@ -59,7 +60,6 @@
                                     'container' => '',
                                     'walker' => $walker
                                 );
-                                
                                 ?>
                                 <?php wp_nav_menu($args); ?>
                             </div>
@@ -68,7 +68,26 @@
                 </div>
             </div>
         </header>
-        <section class="main-slider">
+        <section class="main-slider relative">
             <?php echo do_shortcode("[huge_it_slider id='2']"); ?>
+            <div class="absolute-container no-height">
+                <div class="container no-height">                    
+                    <div class="row no-height">
+                        <hr class="slider-devider" />
+                        <div class="col-md-3 meunu-sidebar">
+                            <?php
+                            $walker = new Nfr_Menu_Walker();
+                            $args = array(
+                                'theme_location' => 'sidebar',
+                                'menu_class' => 'sidebar-menu',
+                                'container' => '',
+                                'walker' => $walker
+                            );
+                            ?>
+                            <?php wp_nav_menu($args); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         <!--      End Header      -->
