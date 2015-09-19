@@ -4,8 +4,10 @@
         <meta charset="<?php bloginfo('charset'); ?>">
         <meta name="viewport" content="width=device-width">
         <title><?php bloginfo('name'); ?></title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,600' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
         <?php wp_head(); ?>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="shortcut icon" href="<?php echo get_template_directory_uri() . '/images/favicon.ico'; ?>" />
     </head>
     <body <?php body_class(); ?>>
         <!--    HEADER  -->
@@ -75,7 +77,7 @@
                 <div class="container no-height">                    
                     <div class="row no-height">
                         <hr class="slider-devider" />
-                        <div class="col-md-3 meunu-sidebar">
+                        <div class="col-md-3 menu-sidebar">
                             <?php
                             $walker = new Nfr_Menu_Walker();
                             $args = array(

@@ -1,12 +1,8 @@
 // Initialize
 jQuery(function($) {
-    $("#sidebar-th-su").hover(function(){
-
-    })
-    
-
-    $(".home-sb-item").click(function(){
-        $('.selected').removeClass('selected');
-        $(this).addClass('selected');
-    })
+    $('.counter').each(function (e) {
+		$(".timer").waypoint(function() {
+			$('.timer').countTo();
+		}, { offset: '85%', triggerOnce:true});
+	});	
 });
