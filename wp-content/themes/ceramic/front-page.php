@@ -29,6 +29,8 @@
 <?php endif; ?>
 <?php wp_reset_postdata(); ?>
 
+<?php get_template_part('productlist', get_post_format()); ?>
+
 <div class="site-content clearfix">
 
     <h3>Custom HTML Here</h3>

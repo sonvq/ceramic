@@ -206,6 +206,11 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
     margin: 5px !important;
 }
 
+.huge_it_slideshow_image_wrap_2, .huge_it_slideshow_image_container_2,
+.huge_it_slideshow_image_container_2 img {
+    height: 435px !important;
+}
+
 .search-box {
     border: none;
     background-color: #ededed;

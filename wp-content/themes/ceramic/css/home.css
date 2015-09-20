@@ -9,6 +9,76 @@
     width: 100%;
 }
 
+.product-list-title {
+    background: #fff;
+    text-align: center;
+    padding-top: 52px;
+    padding-bottom: 61px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.hover-product-zoom {
+    visibility: hidden;
+    background: url(../images/hover-product-zoom.png) no-repeat; 
+    width: 24px;
+    height: 24px;
+    box-shadow: 3px 5.196px 7px 0px rgba( 0, 0, 0, 0.38 );
+    -moz-box-shadow: 3px 5.196px 7px 0px rgba( 0, 0, 0, 0.38 );
+    -webkit-box-shadow: 3px 5.196px 7px 0px rgba( 0, 0, 0, 0.38 );
+    position: absolute;
+    right: 11px;
+    top: -34px;
+}
+
+.product-list-item {
+    text-align: center;
+    display: block;
+    border: 1px solid #e2e2e2;
+    text-decoration: none;    
+}
+
+.product-list-item:hover, .product-list-item:active {
+    text-decoration: none;
+    box-shadow: 3px 3px 16px rgba( 0, 0, 0, 0.25 );
+    -moz-box-shadow: 3px 3px 16px rgba( 0, 0, 0, 0.25 );
+    -webkit-box-shadow: 3px 3px 16px rgba( 0, 0, 0, 0.25 );
+}
+.product-list-item:hover .hover-product-zoom, .product-list-item:active .hover-product-zoom {
+    visibility: visible;
+}
+
+.product-list-item img {
+    width: 200px;
+    height: 150px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+
+.product-list-item .product-detail h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000;
+}
+
+.product-list-item .product-detail .sku-product-list {
+    color: #666666;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.product-list-item .product-detail {
+    border-top: 1px solid #e2e2e2;
+    background: #f2f2f2;
+    padding-top: 6px;
+    padding-bottom: 9px;
+    position: relative;
+}
+
 .why-ceramics-data {
     width: 100%;
     padding-top: 41px;

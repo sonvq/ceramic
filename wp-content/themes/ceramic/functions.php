@@ -230,3 +230,18 @@ class Nfr_Menu_Walker extends Walker_Nav_Menu {
     }
 
 }
+
+/*
+ * Change placeholder image of woocommerce product
+ */
+add_action('init', 'custom_fix_thumbnail');
+
+function custom_fix_thumbnail() {
+    add_filter('woocommerce_placeholder_img_src', 'custom_woocommerce_placeholder_img_src');
+
+    function custom_woocommerce_placeholder_img_src($src) {
+        $src = get_template_directory_uri() . '/images/product-placeholder.png';
+        return $src;
+    }
+
+}
