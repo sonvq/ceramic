@@ -78,7 +78,7 @@ function ceramic_setup() {
     add_image_size('banner-image', 920, 210, array('left', 'top'));
 
     // Add post format support
-    add_theme_support('post-formats', array('aside', 'gallery', 'link'));
+    add_theme_support('post-formats', array('aside', 'gallery', 'link', 'status'));
 }
 
 add_action('after_setup_theme', 'ceramic_setup');
@@ -245,3 +245,14 @@ function custom_fix_thumbnail() {
     }
 
 }
+
+/*
+ * Add favicon to login and admin page
+ */
+function add_favicon() {
+    $favicon_url = get_template_directory_uri() . '/images/favicon.ico';  	
+	echo '<link rel="shortcut icon" href="' . $favicon_url . '" />';
+}
+  
+add_action('login_head', 'add_favicon');
+add_action('admin_head', 'add_favicon');

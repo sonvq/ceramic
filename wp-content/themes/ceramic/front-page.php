@@ -1,4 +1,38 @@
 <?php get_header(); ?>
+<?php
+$status_post = new WP_Query(array(
+    'post_type' => 'post',
+    'cat' => '-1',
+    'posts_per_page' => 3,
+    'tax_query' => array(array(
+            'taxonomy' => 'post_format',
+            'field' => 'slug',
+            'terms' => array('post-format-status'),
+            'operator' => 'IN'
+        ))
+    ));
+?>
+<?php if ($status_post->have_posts()): ?>
+<section class="hot-deal container">
+    <div class="row">
+        <?php while ($status_post->have_posts()): $status_post->the_post(); ?>
+            <div class="col-md-4 status-block">
+                <div class="status-block-content">
+                    <p class="status-excerpt">
+                        <?php the_excerpt(); ?>
+                    </p>
+                    <p class="status-title">
+                        <?php the_title(); ?>
+                    </p>                
+                </div>
+            </div>
+        <?php endwhile; ?>
+    </div>
+</section>
+<?php endif; ?>
+<?php wp_reset_postdata(); ?>
+
+
 <section class="why-ceramics">
     <div class="separate-horizontal-line"></div>
     <div class="contentblock-title">

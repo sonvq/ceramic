@@ -18,11 +18,11 @@
                         <div class="col-md-3">
                             <?php if (get_theme_mod('customize_logo_settings')) : ?>
                                 <a class="logo" href="<?php echo esc_url(home_url('/')); ?>">
-                                    <img width="121" height="96" alt="<?php bloginfo('name'); ?>" src="<?php echo esc_url(get_theme_mod('customize_logo_settings')); ?>"/>
+                                    <img width="108" height="108" alt="<?php bloginfo('name'); ?>" src="<?php echo esc_url(get_theme_mod('customize_logo_settings')); ?>"/>
                                 </a>
                             <?php else : ?>
                                 <a class="logo" href="<?php echo esc_url(home_url('/')); ?>">
-                                    <img width="121" height="96" alt="<?php bloginfo('name'); ?>" src="<?php echo get_template_directory_uri() . '/images/th-ceramic-logo.png'; ?>"/>
+                                    <img width="108" height="108" alt="<?php bloginfo('name'); ?>" src="<?php echo get_template_directory_uri() . '/images/th-ceramic-logo.png'; ?>"/>
                                 </a>
                             <?php endif; ?>
                         </div>
