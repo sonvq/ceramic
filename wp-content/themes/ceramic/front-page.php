@@ -19,11 +19,15 @@ $status_post = new WP_Query(array(
             <div class="col-md-4 status-block">
                 <div class="status-block-content">
                     <p class="status-excerpt">
-                        <?php the_excerpt(); ?>
+                        <?php echo get_the_excerpt(); ?>
                     </p>
+                    <span class="status-title-line"></span>
                     <p class="status-title">
-                        <?php the_title(); ?>
-                    </p>                
+                        <?php echo wordwrap(get_the_title(), 15, "<br />\n"); ?>
+                    </p>
+                    <p class="status-link">
+                        <a href="<?php the_permalink(); ?>"><?php echo __("More info", "ceramic"); ?></a>
+                    </p>
                 </div>
             </div>
         <?php endwhile; ?>

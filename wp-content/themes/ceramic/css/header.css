@@ -22,10 +22,6 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
     margin-top: 35px;
 }
 
-.status-block-content {
-    background: url(../images/status-bg.png);
-}
-
 .header input{
     border: none;
     border-radius: 0px;
