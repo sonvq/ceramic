@@ -2,7 +2,6 @@
 <?php
 $status_post = new WP_Query(array(
     'post_type' => 'post',
-    'cat' => '-1',
     'posts_per_page' => 3,
     'tax_query' => array(array(
             'taxonomy' => 'post_format',
@@ -26,7 +25,7 @@ $status_post = new WP_Query(array(
                         <?php echo wordwrap(get_the_title(), 15, "<br />\n"); ?>
                     </p>
                     <p class="status-link">
-                        <a href="<?php the_permalink(); ?>"><?php echo __("More info", "ceramic"); ?></a>
+                        <a href="<?php the_permalink(); ?>"><?php echo __("More info", "ceramic"); ?><span class="link-arrow"></span></a>
                     </p>
                 </div>
             </div>
@@ -36,6 +35,7 @@ $status_post = new WP_Query(array(
 <?php endif; ?>
 <?php wp_reset_postdata(); ?>
 
+<?php get_template_part('productlist', get_post_format()); ?>
 
 <section class="why-ceramics">
     <div class="separate-horizontal-line"></div>
@@ -66,8 +66,6 @@ $status_post = new WP_Query(array(
     </section>
 <?php endif; ?>
 <?php wp_reset_postdata(); ?>
-
-<?php get_template_part('productlist', get_post_format()); ?>
 
 <div class="site-content clearfix">
 

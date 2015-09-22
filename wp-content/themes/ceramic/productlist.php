@@ -52,7 +52,7 @@ $all_categories = get_categories($args);
                         while ($loop->have_posts()) : $loop->the_post();
                             global $product;
                             ?>
-                            <div class="col-md-3">    
+                            <div class="col-md-3 single-product">    
 
                                 <a class="product-list-item" href="<?php echo get_permalink($loop->post->ID) ?>" title="<?php echo esc_attr($loop->post->post_title ? $loop->post->post_title : $loop->post->ID); ?>">
                                     <?php
