@@ -37,6 +37,16 @@ $status_post = new WP_Query(array(
 
 <?php get_template_part('productlist', get_post_format()); ?>
 
+<section class="about-us-home">
+    <div class="container">
+        <div class="row">
+            <div class="about-us-content col-md-5 col-md-offset-5">
+                <?php echo types_render_field('page-short-description', array('post_id' => 155, 'output' => 'html')); ?>
+            </div>
+        </div>
+    </div>    
+</section>
+
 <section class="why-ceramics">
     <div class="separate-horizontal-line"></div>
     <div class="contentblock-title">
@@ -66,15 +76,6 @@ $status_post = new WP_Query(array(
     </section>
 <?php endif; ?>
 <?php wp_reset_postdata(); ?>
-
-<section class="about-us-home">
-    <div class="separate-horizontal-line"></div>
-    <div class="contentblock-title">
-        <p class="normal-title"><?php echo __("Why choose", "ceramic"); ?></p> 
-        <p class="bold-title"><?php echo get_bloginfo('name'); ?></p>
-    </div>
-    <div class="separate-horizontal-line"></div>
-</section>
 
 <div class="site-content clearfix">
 

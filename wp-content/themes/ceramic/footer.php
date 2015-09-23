@@ -35,5 +35,14 @@
 
 <?php wp_footer(); ?>   
 
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            $(".about-us-home").backstretch("<?php echo get_template_directory_uri() . '/images/about-bg.png'; ?>");
+        });
+    }(jQuery));
+
+</script>
+
 </body>
 </html>

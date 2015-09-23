@@ -19,6 +19,7 @@ function ceramic_resources() {
         wp_enqueue_script('ceramic-home-script', get_template_directory_uri() . '/js/home.js', array('jquery'), '', TRUE);
         wp_enqueue_script('ceramic-counter-script', get_template_directory_uri() . '/js/counter.js', array('jquery'), '', TRUE);
         wp_enqueue_script('ceramic-waypoint-script', get_template_directory_uri() . '/js/waypoint.js', array('jquery'), '', TRUE);
+        wp_enqueue_script('ceramic-backstretch-script', get_template_directory_uri() . '/js/jquery.backstretch.min.js', array('jquery'), '', TRUE);
     }
 
     wp_enqueue_style('ceramic-common', get_template_directory_uri() . '/css/common.css', array(), null, 'all');
