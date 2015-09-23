@@ -67,6 +67,15 @@ $status_post = new WP_Query(array(
 <?php endif; ?>
 <?php wp_reset_postdata(); ?>
 
+<section class="about-us-home">
+    <div class="separate-horizontal-line"></div>
+    <div class="contentblock-title">
+        <p class="normal-title"><?php echo __("Why choose", "ceramic"); ?></p> 
+        <p class="bold-title"><?php echo get_bloginfo('name'); ?></p>
+    </div>
+    <div class="separate-horizontal-line"></div>
+</section>
+
 <div class="site-content clearfix">
 
     <h3>Custom HTML Here</h3>

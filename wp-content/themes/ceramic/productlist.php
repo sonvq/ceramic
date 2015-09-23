@@ -61,6 +61,15 @@ $all_categories = get_categories($args);
                                     else
                                         echo '<img src="' . woocommerce_placeholder_img_src() . '" alt="Placeholder" />';
                                     ?>
+                                    <?php 
+                                        $now = time(); 
+                                        $postDate = strtotime($loop->post->post_date);
+                                        $timeDiff = $now - $postDate;
+                                        $dateDiff = floor($timeDiff/(60*60*24));
+                                        if ($dateDiff < 1) {
+                                            echo '<span class="new-product-sticker">' . __("NEW", "ceramic") . '</span><span class="arrow-down-sticker"></span>';
+                                        }
+                                    ?>
                                     <div class="product-detail">
                                         <h3><?php the_title(); ?></h3>
                                         <p class="sku-product-list">

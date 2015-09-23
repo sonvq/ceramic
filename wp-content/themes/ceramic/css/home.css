@@ -25,6 +25,29 @@
     padding-top: 10px;
 }
 
+.new-product-sticker {
+    position: absolute;
+    background: #000000;
+    color: #FFF;
+    padding: 6px 8px 6px 8px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    top: 9px;
+    right: -7px;
+}
+
+.arrow-down-sticker {
+	width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 6px 0 0;
+    border-color: #6B6A65 transparent transparent transparent;
+    position: absolute;
+    top: 33px;
+    right: -6.5px;
+}
+
 .hover-product-zoom {
     visibility: hidden;
     background: url(../images/hover-product-zoom.png) no-repeat; 
@@ -39,6 +62,7 @@
 }
 
 .product-list-item {
+    position: relative;
     text-align: center;
     display: block;
     border: 1px solid #e2e2e2;
