@@ -53,6 +53,29 @@
     right: -6.5px;
 }
 
+.about-us-content {
+    padding-left: 50px;
+    padding-top: 90px;
+}
+
+.about-us-content h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 40px;
+    padding-bottom: 22px;
+}
+
+.about-us-content p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    line-height: 22px;
+    color: #fff;
+    padding-bottom: 23px;
+}
+
 .hover-product-zoom {
     visibility: hidden;
     background: url(../images/hover-product-zoom.png) no-repeat; 

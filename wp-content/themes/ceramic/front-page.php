@@ -40,7 +40,7 @@ $status_post = new WP_Query(array(
 <section class="about-us-home">
     <div class="container">
         <div class="row">
-            <div class="about-us-content col-md-5 col-md-offset-5">
+            <div class="about-us-content col-md-6 col-md-offset-5">
                 <?php echo types_render_field('page-short-description', array('post_id' => 155, 'output' => 'html')); ?>
             </div>
         </div>
