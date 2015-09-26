@@ -20,6 +20,61 @@
     width: 100%;
 }
 
+.project-list {
+    background: #fff;
+    text-align: center;
+    padding-top: 55px;
+    padding-bottom: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.grid-invi {
+    display: none;
+}
+.gridItem img {
+    height: 100%; 
+    width: 100%; 
+    object-fit: cover;
+    border: 1px solid #e5e5e5;
+}
+
+.grid {
+    position: relative;
+    margin: 0 auto;
+}
+
+.gridItem {
+    overflow: hidden;
+	background: #e0e0e0;
+	box-sizing: border-box;
+	position: absolute;
+}
+
+.project-list-title {
+    position: absolute;
+    bottom: 0px;
+    visibility: hidden;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    opacity: 0;
+}
+
+.gridSingleItem:hover .project-list-title {
+    display: block;
+    background-color: rgb( 0, 0, 0 );  
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+    visibility: visible;
+}
+
 .status-block-content {
     background: url(../images/status-bg.png);
     padding-top: 10px;

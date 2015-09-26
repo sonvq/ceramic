@@ -20,6 +20,8 @@ function ceramic_resources() {
         wp_enqueue_script('ceramic-counter-script', get_template_directory_uri() . '/js/counter.js', array('jquery'), '', TRUE);
         wp_enqueue_script('ceramic-waypoint-script', get_template_directory_uri() . '/js/waypoint.js', array('jquery'), '', TRUE);
         wp_enqueue_script('ceramic-backstretch-script', get_template_directory_uri() . '/js/jquery.backstretch.min.js', array('jquery'), '', TRUE);
+        wp_enqueue_script('ceramic-underscore-script', get_template_directory_uri() . '/js/underscore-min.js', array('jquery'), '', TRUE);
+        wp_enqueue_script('ceramic-cloudgrid-script', get_template_directory_uri() . '/js/cloudGrid.js', array('jquery', 'ceramic-underscore-script'), '', TRUE);
     }
 
     wp_enqueue_style('ceramic-common', get_template_directory_uri() . '/css/common.css', array(), null, 'all');
@@ -251,9 +253,42 @@ function custom_fix_thumbnail() {
  * Add favicon to login and admin page
  */
 function add_favicon() {
-    $favicon_url = get_template_directory_uri() . '/images/favicon.ico';  	
-	echo '<link rel="shortcut icon" href="' . $favicon_url . '" />';
+    $favicon_url = get_template_directory_uri() . '/images/favicon.ico';
+    echo '<link rel="shortcut icon" href="' . $favicon_url . '" />';
 }
-  
+
 add_action('login_head', 'add_favicon');
 add_action('admin_head', 'add_favicon');
+
+
+/*
+ * Add Project Category Taxonomy filter to Project list
+ */
+add_action('restrict_manage_posts', 'my_restrict_manage_posts');
+
+function my_restrict_manage_posts() {
+
+    // only display these taxonomy filters on desired custom post_type listings
+    global $typenow;
+    if ($typenow == 'project') {
+        // create an array of taxonomy slugs you want to filter by - if you want to retrieve all taxonomies, could use get_taxonomies() to build the list
+        $filters = array('project-category');
+
+        foreach ($filters as $tax_slug) {
+            // retrieve the taxonomy object
+            $tax_obj = get_taxonomy($tax_slug);
+            $tax_name = $tax_obj->labels->name;
+            // retrieve array of term objects per taxonomy
+            $terms = get_terms($tax_slug);
+
+            // output html for taxonomy dropdown filter
+            echo "<select name='$tax_slug' id='$tax_slug' class='postform'>";
+            echo "<option value=''>Show All $tax_name</option>";
+            foreach ($terms as $term) {
+                // output each select option line, check against the last $_GET to show the current option selected
+                echo '<option value=' . $term->slug, $_GET[$tax_slug] == $term->slug ? ' selected="selected"' : '', '>' . $term->name . ' (' . $term->count . ')</option>';
+            }
+            echo "</select>";
+        }
+    }
+}
