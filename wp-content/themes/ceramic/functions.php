@@ -15,6 +15,8 @@ function ceramic_resources() {
 
     wp_enqueue_script('jquery', get_template_directory_uri() . '/js/jquery-1.11.3.min.js', array(), '', TRUE);
     if (is_front_page()) {
+        wp_enqueue_style('ceramic-slick', get_template_directory_uri() . '/slick/slick.css', array(), null, 'all');
+        wp_enqueue_style('ceramic-slick-theme', get_template_directory_uri() . '/slick/slick-theme.css', array(), null, 'all');
         wp_enqueue_style('ceramic-home', get_template_directory_uri() . '/css/home.css', array(), null, 'all');
         wp_enqueue_script('ceramic-home-script', get_template_directory_uri() . '/js/home.js', array('jquery'), '', TRUE);
         wp_enqueue_script('ceramic-counter-script', get_template_directory_uri() . '/js/counter.js', array('jquery'), '', TRUE);
@@ -22,8 +24,10 @@ function ceramic_resources() {
         wp_enqueue_script('ceramic-backstretch-script', get_template_directory_uri() . '/js/jquery.backstretch.min.js', array('jquery'), '', TRUE);
         wp_enqueue_script('ceramic-underscore-script', get_template_directory_uri() . '/js/underscore-min.js', array('jquery'), '', TRUE);
         wp_enqueue_script('ceramic-cloudgrid-script', get_template_directory_uri() . '/js/cloudGrid.js', array('jquery', 'ceramic-underscore-script'), '', TRUE);
+        wp_enqueue_script('ceramic-viewportchecker-script', get_template_directory_uri() . '/js/viewportchecker.min.js', array('jquery'), '', TRUE);
+        wp_enqueue_script('ceramic-slick-script', get_template_directory_uri() . '/slick/slick.min.js', array('jquery'), '', TRUE);
     }
-
+    
     wp_enqueue_style('ceramic-common', get_template_directory_uri() . '/css/common.css', array(), null, 'all');
     wp_enqueue_style('ceramic-style', get_stylesheet_uri(), '', null, 'all');
 
@@ -49,13 +53,6 @@ function has_children() {
     return count($pages);
 }
 
-// Customize excerpt word count length
-function custom_excerpt_length() {
-    return 25;
-}
-
-add_filter('excerpt_length', 'custom_excerpt_length');
-
 function ceramic_setup() {
 
     // wp-content/languages/themes/ceramic-it_IT.mo
@@ -72,50 +69,40 @@ function ceramic_setup() {
         'primary' => 'Primary Menu',
         'footer' => 'Footer Menu',
         'sidebar' => 'Sidebar Menu',
+        'sitemap' => 'Sitemap Menu'
     ));
 
     // Add featured image support
     add_theme_support('post-thumbnails');
 
-    add_image_size('small-thumnail', 180, 120, true);
-    add_image_size('banner-image', 920, 210, array('left', 'top'));
-
+//    add_image_size('small-thumnail', 224, 158, true);
+//    add_image_size('banner-image', 920, 210, array('left', 'top'));
     // Add post format support
-    add_theme_support('post-formats', array('aside', 'gallery', 'link', 'status'));
+    add_theme_support('post-formats', array('status'));
+    //add_theme_support('post-formats', array('aside', 'gallery', 'link', 'status'));
 }
 
 add_action('after_setup_theme', 'ceramic_setup');
 
 // Add Our Widget Locations
 function ourWidgetsInit() {
-    register_sidebar(array(
-        'name' => 'Standard Sidebar',
-        'id' => 'sidebar1',
-        'before_widget' => '<div class="widget-item">',
-        'after_widget' => '</div>',
-        'before_title' => '<h4 class="my-special-class">',
-        'after_title' => '</h4>'
-    ));
+//    register_sidebar(array(
+//        'name' => 'Standard Sidebar',
+//        'id' => 'sidebar1',
+//        'before_widget' => '<div class="widget-item">',
+//        'after_widget' => '</div>',
+//        'before_title' => '<h4 class="my-special-class">',
+//        'after_title' => '</h4>'
+//    ));
+
 
     register_sidebar(array(
-        'name' => __('Footer Area 1', 'ceramic'),
-        'id' => 'footer1'
+        'name' => __('Footer Contact Text', 'ceramic'),
+        'id' => 'footer-contact-text',
+        'before_widget' => '',
+        'after_widget' => '',
     ));
 
-    register_sidebar(array(
-        'name' => __('Footer Area 2', 'ceramic'),
-        'id' => 'footer2'
-    ));
-
-    register_sidebar(array(
-        'name' => __('Footer Area 3', 'ceramic'),
-        'id' => 'footer3'
-    ));
-
-    register_sidebar(array(
-        'name' => __('Footer Area 4', 'ceramic'),
-        'id' => 'footer4'
-    ));
 }
 
 add_action('widgets_init', 'ourWidgetsInit');
@@ -252,6 +239,7 @@ function custom_fix_thumbnail() {
 /*
  * Add favicon to login and admin page
  */
+
 function add_favicon() {
     $favicon_url = get_template_directory_uri() . '/images/favicon.ico';
     echo '<link rel="shortcut icon" href="' . $favicon_url . '" />';
@@ -292,3 +280,41 @@ function my_restrict_manage_posts() {
         }
     }
 }
+
+/*
+ * Description: Preserves HTML formating to the automatically generated Excerpt.
+ */
+function custom_wp_trim_excerpt($text) {
+    $raw_excerpt = $text;
+    if ('' == $text) {
+        $text = get_the_content('');
+
+        $text = strip_shortcodes($text);
+
+        $text = apply_filters('the_content', $text);
+        $text = str_replace(']]>', ']]&gt;', $text);
+
+        $allowed_tags = '';
+        $text = strip_tags($text, $allowed_tags);
+
+        $excerpt_word_count = 25;
+        $excerpt_length = apply_filters('excerpt_length', $excerpt_word_count);
+
+        $excerpt_end = '...';
+        $excerpt_more = apply_filters('excerpt_more', ' ' . $excerpt_end);
+
+        $words = preg_split("/[\n\r\t ]+/", $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY);
+        if (count($words) > $excerpt_length) {
+            array_pop($words);
+            $text = implode(' ', $words);
+            $text = $text . $excerpt_more;
+        } else {
+            $text = implode(' ', $words);
+        }
+    }
+    return apply_filters('wp_trim_excerpt', $text, $raw_excerpt);
+}
+
+remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+add_filter('get_the_excerpt', 'custom_wp_trim_excerpt');
+

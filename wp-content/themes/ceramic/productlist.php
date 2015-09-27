@@ -45,7 +45,7 @@ $all_categories = get_categories($args);
                         </div>
                         <div class="separate-horizontal-line"></div>
                     </div>
-                    <div class="row">
+                    <div class="row effect-2">
                         <?php
                         $args = array('post_type' => 'product', 'stock' => 1, 'posts_per_page' => 8, 'product_cat' => $cat->slug, 'orderby' => 'date', 'order' => 'ASC');
                         $loop = new WP_Query($args);
@@ -66,7 +66,7 @@ $all_categories = get_categories($args);
                                         $postDate = strtotime($loop->post->post_date);
                                         $timeDiff = $now - $postDate;
                                         $dateDiff = floor($timeDiff/(60*60*24));
-                                        if ($dateDiff < 1) {
+                                        if ($dateDiff < 10) {
                                             echo '<span class="new-product-sticker">' . __("NEW", "ceramic") . '</span><span class="arrow-down-sticker"></span>';
                                         }
                                     ?>

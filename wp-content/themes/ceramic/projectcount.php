@@ -6,6 +6,7 @@
                 <?php while ($project_counter->have_posts()): $project_counter->the_post(); ?>
                     <div class="col-md-3 counter">
                         <p data-from="0" data-to="<?php echo types_render_field('number-counter', array('post_id' => get_the_ID(), 'output' => 'raw')); ?>" data-speed="4000" data-refresh-interval="50" class="timer counter-number">0</p>
+                        <p class="counter-divider"></p>
                         <p class="counter-title">
                             <?php the_title(); ?>
                         </p>

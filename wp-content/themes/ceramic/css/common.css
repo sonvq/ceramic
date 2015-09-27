@@ -15,6 +15,65 @@ i, em {
     font-style: italic;
 }
 
+.site-footer {
+    background: #3e3e3e;
+    width: 100%;    
+}
+
+.footer-top-divider {
+    background-color: rgb( 107, 107, 107 );
+    height: 8px;
+}
+
+.sitemap-menu li a {
+    display: inline-block;
+    float: left;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    border-right: 1px solid #525252;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+.sitemap-menu li:first-of-type a {
+    padding-left: 0px;
+}
+.sitemap-menu li:last-of-type a {
+    border: none;
+}
+.footer-logo, .footer-contact {
+    position: relative;
+    margin-top: 23px;
+}
+.footer-contact {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    color: #dcdcdc;
+}
+.footer-contact p {
+    margin-bottom: 5px;
+}
+.footer-contact a {
+    color: #ffffff;
+}
+span.footer-logo-divider {
+    right: 15px;
+    top: 4px;
+    width: 1px;
+    height: 82px;
+    background: #323232;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+.footer-top-content {
+    min-height: 186px;
+    padding-top: 23px;
+}
+
+
 /*==========  Mobile First Method  ==========*/
 
 /* Custom, iPhone Retina */

@@ -1,36 +1,43 @@
 <footer class="site-footer">
-    <div class="footer-widgets clearfix">
-        <?php if (is_active_sidebar('footer1')): ?>
-            <div class="footer-widget-area">
-                <?php dynamic_sidebar('footer1'); ?>    
+    <div class="footer-top-divider"></div>
+    <div class="container footer-top-content">
+        <div class="row">
+            <div class="col-md-6">
+                <?php
+                $args = array(
+                    'theme_location' => 'sitemap',
+                    'menu_class' => 'sitemap-menu',
+                    'container' => ''
+                );
+                ?>
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php wp_nav_menu($args); ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="footer-logo col-md-3">
+                        <a class="" href="<?php echo esc_url(home_url('/')); ?>">
+                            <img width="87" height="87" alt="<?php bloginfo('name'); ?>" src="<?php echo get_template_directory_uri() . '/images/footer-logo.png'; ?>"/>
+                        </a>
+                        <span class="footer-logo-divider"></span>
+                    </div>
+                    <div class="footer-contact col-md-9">
+                        <?php if (is_active_sidebar('footer-contact-text')): ?>
+                            <?php dynamic_sidebar('footer-contact-text'); ?>    
+                        <?php endif; ?>                        
+                    </div>
+                </div>
+                    
             </div>
-        <?php endif; ?>
-        <?php if (is_active_sidebar('footer2')): ?>
-            <div class="footer-widget-area">
-                <?php dynamic_sidebar('footer2'); ?>    
+            <div class="col-md-2">
+                
             </div>
-        <?php endif; ?>
-        <?php if (is_active_sidebar('footer3')): ?>
-            <div class="footer-widget-area">
-                <?php dynamic_sidebar('footer3'); ?>    
+            <div class="col-md-4">
+                
             </div>
-        <?php endif; ?>
-        <?php if (is_active_sidebar('footer4')): ?>
-            <div class="footer-widget-area">
-                <?php dynamic_sidebar('footer4'); ?>    
-            </div>
-        <?php endif; ?>
+        </div>
     </div>
-    <nav>
-        <?php
-        $args = array(
-            'theme_location' => 'footer'
-        );
-        ?>
-        <?php wp_nav_menu($args); ?>
-    </nav>
-    <p><?php bloginfo('name'); ?> - &COPY; <?php echo date('Y'); ?></p>
-
 </footer>
 
 <?php wp_footer(); ?>   
@@ -39,6 +46,8 @@
     (function ($) {
         $(document).ready(function () {
             $(".about-us-home").backstretch("<?php echo get_template_directory_uri() . '/images/about-bg.png'; ?>");
+            $(".why-ceramics-data").backstretch("<?php echo get_template_directory_uri() . '/images/why-ceramics-bg.png'; ?>");
+            
         });
     }(jQuery));
 
