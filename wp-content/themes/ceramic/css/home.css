@@ -1,9 +1,6 @@
 .why-ceramics, .project-list, .news-list {
     background: #fff;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
 }
 .why-ceramics {    
@@ -81,10 +78,8 @@
     text-align: center;
     padding-top: 52px;
     padding-bottom: 61px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
+    margin: 0px;
 }
 
 .grid-invi {
@@ -388,12 +383,13 @@
     height: 1px;
     background: #b2b2b2;
     display: inline-block;
-    float: left;
+    margin-top: 17px;
+    vertical-align: top;
 }
 
 .contentblock-title {
     display: inline-block;
-    float: left;
+    vertical-align: top;
 }
 
 /* Effect 3: Scale up */

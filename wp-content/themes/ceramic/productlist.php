@@ -39,12 +39,12 @@ $all_categories = get_categories($args);
                 if ($sub_cats && ($countProducts > 0)) :
                     ?>                
                     <div class="row product-list-title">
-                        <div class="separate-horizontal-line"></div>
-                        <div class="contentblock-title">
-                            <p class="bold-title"><?php echo $cat->name; ?></p>
+                            <div class="separate-horizontal-line"></div>
+                            <div class="contentblock-title">
+                                <p class="bold-title"><?php echo $cat->name; ?></p>
+                            </div>
+                            <div class="separate-horizontal-line"></div>
                         </div>
-                        <div class="separate-horizontal-line"></div>
-                    </div>
                     <div class="row effect-2">
                         <?php
                         $args = array('post_type' => 'product', 'stock' => 1, 'posts_per_page' => 8, 'product_cat' => $cat->slug, 'orderby' => 'date', 'order' => 'ASC');

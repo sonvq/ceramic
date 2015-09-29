@@ -31,7 +31,15 @@
                     
             </div>
             <div class="col-md-2">
-                
+                <?php echo __('Information', 'ceramic'); ?>
+                <?php
+                $args = array(
+                    'theme_location' => 'footer',
+                    'menu_class' => 'footer-menu',
+                    'container' => ''
+                );
+                ?>
+                <?php wp_nav_menu($args); ?>
             </div>
             <div class="col-md-4">
                 
